@@ -8,7 +8,7 @@ use wol::{MacAddress, send_magic_packet};
 const PORT: &str = "5000";
 
 fn main() {
-    let server = Server::http("0.0.0.0:".to_string() + PORT).unwrap();
+    let server = Server::http(format!("[::]:{}", PORT)).unwrap();
 
     for mut request in server.incoming_requests() {
         if request.url() == "/wake" && request.method().eq(&Method::Post) {
