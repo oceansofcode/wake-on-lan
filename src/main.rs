@@ -5,7 +5,7 @@ use tiny_http::{Method, Response, Server, StatusCode};
 use serde_json::{Value};
 use wol::{MacAddress, send_magic_packet};
 
-const PORT: &str = "5000";
+const PORT: u16 = 5000;
 
 fn main() {
     let server = Server::http(format!("[::]:{}", PORT)).unwrap();
